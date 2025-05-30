@@ -6,13 +6,14 @@ import { fetchSongs } from "../redux/actions";
 const Gallery = ({ title, query }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchSongs(query));
-  }, []);
-
   const handleClick = data => {
     dispatch({ type: "SELECT_SONG", payload: data });
   };
+  useEffect(() => {
+    dispatch(fetchSongs("queen"));
+    dispatch(fetchSongs("katyperry"));
+    dispatch(fetchSongs("eminem"));
+  }, []);
 
   return (
     <>
