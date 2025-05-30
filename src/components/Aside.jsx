@@ -1,6 +1,7 @@
 import { Button, Col, Container, Form, Image, InputGroup, Nav, Navbar } from "react-bootstrap";
 import logo from "../assets/logo/logo.png";
 import { HouseDoorFill, BookFill } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 const Aside = () => {
   return (
@@ -21,14 +22,14 @@ const Aside = () => {
             />
             <Navbar.Collapse id="navbarNavAltMarkup" className="navbar-collapse">
               <Nav className="d-flex flex-column">
-                <Nav.Link href="#home" className="nav-item d-flex align-items-center">
+                <Link to={"/"} className="nav-item nav-link d-flex align-items-center">
                   <HouseDoorFill className="me-2 icons" />
                   Home
-                </Nav.Link>
-                <Nav.Link href="#link" className="nav-item d-flex align-items-center ">
+                </Link>
+                <Link to={"/favourites"} className="nav-link nav-item d-flex align-items-center ">
                   <BookFill className="me-2 icons" />
-                  Your Library
-                </Nav.Link>
+                  Your Favourites
+                </Link>
                 <InputGroup className="mt-3">
                   <Form.Control type="text" placeholder="Search" aria-label="Search" />
                   <Button variant="outline-secondary" id="button-addon2" className="btn-sm ">
