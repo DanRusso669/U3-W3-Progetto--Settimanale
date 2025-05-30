@@ -4,15 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchSongs } from "../redux/actions";
 import { StarFill, Star } from "react-bootstrap-icons";
 
-const Gallery = ({ title, query }) => {
+const Gallery = ({ title, query, artistArr }) => {
   const dispatch = useDispatch();
 
   const favSongs = useSelector(state => state.favourites.content);
 
   useEffect(() => {
-    dispatch(fetchSongs("queen"));
-    dispatch(fetchSongs("katyperry"));
-    dispatch(fetchSongs("eminem"));
+    dispatch(fetchSongs(query));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -34,7 +32,7 @@ const Gallery = ({ title, query }) => {
     <>
       <h2>{title}</h2>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="rockSection">
-        {query.map(song => (
+        {artistArr.map(song => (
           <Col className="text-center d-flex flex-column align-items-center" key={song.id}>
             <div className="position-relative imgContainer">
               {favSongs.includes(song) ? (
