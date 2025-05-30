@@ -24,6 +24,13 @@ const MainSection = () => {
     dispatch({ type: "SELECT_SONG", payload: data });
   };
 
+  const secToMin = seconds => {
+    let minutes = Math.floor(seconds / 60);
+    let extraSeconds = seconds % 60;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    extraSeconds = extraSeconds < 10 ? "0" + extraSeconds : extraSeconds;
+  };
+
   return (
     <>
       <Col className="col-12 col-md-9 offset-md-3 mainPage">
@@ -66,7 +73,14 @@ const MainSection = () => {
               <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="popSection">
                 {katySongs.map(song => (
                   <Col className="text-center" key={song.id}>
-                    <Image fluid src={song.album.cover_medium} alt="track" />
+                    <Image
+                      fluid
+                      src={song.album.cover_medium}
+                      alt="track"
+                      onClick={() => {
+                        handleClick(song);
+                      }}
+                    />
                     <p>Track: "{song.title}"</p>
                     <p>Artist: {song.artist.name}</p>
                   </Col>
@@ -82,7 +96,14 @@ const MainSection = () => {
               <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="hipHopSection">
                 {eminemSongs.map(song => (
                   <Col className="text-center" key={song.id}>
-                    <Image fluid src={song.album.cover_medium} alt="track" />
+                    <Image
+                      fluid
+                      src={song.album.cover_medium}
+                      alt="track"
+                      onClick={() => {
+                        handleClick(song);
+                      }}
+                    />
                     <p>Track: "{song.title}"</p>
                     <p>Artist: {song.artist.name}</p>
                   </Col>
