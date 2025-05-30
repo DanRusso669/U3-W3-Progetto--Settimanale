@@ -55,7 +55,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-// <Row className="h-100 flex-row">
-//   <Col className="col-lg-10 offset-lg-2">
-//     <Row className="h-100 flex-column justify-content-center align-items-center"></Row>
